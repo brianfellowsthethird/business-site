@@ -11,7 +11,8 @@
     "init-db": "tsx scripts/init-db.ts",
     "seed-modules": "tsx scripts/seed-modules.ts",
     "job:pull-fred": "tsx scripts/jobs/pull-fred-prices.ts",
-    "job:compute-metrics": "tsx scripts/jobs/compute-metrics.ts"
+    "job:compute-metrics": "tsx scripts/jobs/compute-metrics.ts",
+    "test-data": "tsx scripts/test-data.ts"
   },
   "dependencies": {
     "next": "^14.2.0",

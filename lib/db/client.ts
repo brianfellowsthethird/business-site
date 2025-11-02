@@ -104,10 +104,10 @@ export async function upsertMetric(metric: KPIMetric, moduleId: string) {
       moduleId,
       metric.id, // using id as name for now
       metric.value,
-      metric.delta,
-      metric.delta_percent,
+      metric.delta ?? null,
+      metric.delta_percent ?? null,
       metric.period,
-      metric.trend,
+      metric.trend ?? null,
       metric.sparkline ? JSON.stringify(metric.sparkline) : null,
       metric.source,
       metric.last_updated,
@@ -185,11 +185,30 @@ export async function insertModule(module: Module) {
   });
 
   // Insert module-series mappings
+  // Note: Series may not exist yet, so we'll create placeholder entries or skip FK check
+  // The series will be created when data is first pulled
   for (const seriesId of module.series) {
-    await db.execute({
-      sql: 'INSERT OR IGNORE INTO module_series (module_id, series_id) VALUES (?, ?)',
-      args: [module.id, seriesId],
-    });
+    try {
+      await db.execute({
+        sql: 'INSERT OR IGNORE INTO module_series (module_id, series_id) VALUES (?, ?)',
+        args: [module.id, seriesId],
+      });
+    } catch (error: any) {
+      // If foreign key fails, create a placeholder time_series entry
+      if (error?.message?.includes('FOREIGN KEY')) {
+        await db.execute({
+          sql: 'INSERT OR IGNORE INTO time_series (id, name, source, units, frequency, last_updated) VALUES (?, ?, ?, ?, ?, ?)',
+          args: [seriesId, seriesId, 'Pending', 'N/A', 'Monthly', new Date().toISOString()],
+        });
+        // Retry the module_series insert
+        await db.execute({
+          sql: 'INSERT OR IGNORE INTO module_series (module_id, series_id) VALUES (?, ?)',
+          args: [module.id, seriesId],
+        });
+      } else {
+        throw error;
+      }
+    }
   }
 }
 
