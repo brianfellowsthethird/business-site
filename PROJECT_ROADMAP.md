@@ -72,11 +72,12 @@ This document tracks the implementation status of the Tariff Impact Site and out
 
 - [x] **Individual Job Scripts:**
   - [x] `pull_fred_prices.ts` - Daily FRED data fetch ?
-  - [ ] `pull_bls_ppi_ces.ts` - Daily BLS indices
-  - [ ] `pull_census_trade.ts` - Daily trade statistics
+  - [x] `pull_bls_ppi_ces.ts` - Daily BLS indices ?
+  - [x] `pull_census_trade.ts` - Daily trade statistics ?
   - [ ] `pull_usda_fas.ts` - Weekly agricultural data
   - [ ] `pull_policy_events.ts` - Daily policy monitoring
   - [x] `compute_metrics.ts` - Nightly KPI calculations (deltas, YoY, baselines) ?
+  - [x] `run-all.ts` - Master job runner ?
 
 - [ ] **Cron/Scheduling Setup**
   - Local development: manual runs or node-cron
@@ -188,12 +189,12 @@ This document tracks the implementation status of the Tariff Impact Site and out
 
 ## ?? Progress Summary
 
-**Overall Completion: ~75%**
+**Overall Completion: ~80%**
 
 - Infrastructure: ? 100%
 - Components: ? 90%
 - Data Adapters: ?? 67% (FRED/BLS/Census done, USDA/USTR pending)
-- Data Pipeline: ?? 60% (framework + 2 jobs done, 4 more jobs pending)
+- Data Pipeline: ?? 75% (framework + 4 jobs done, 2 more jobs pending)
 - Content/Modules: ?? 30% (templates done, real data pending)
 - Documentation: ? 85%
 

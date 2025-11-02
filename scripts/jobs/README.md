@@ -33,6 +33,51 @@ npm run job:pull-fred
 
 ---
 
+### pull-bls-ppi-ces.ts
+Fetches Producer Price Index (PPI) and Consumer Price Index (CPI) data from BLS.
+
+**Usage:**
+```bash
+npm run job:pull-bls
+```
+
+**What it does:**
+- Fetches PPI and CPI series defined in `data/sources.json` for BLS
+- Gets 5 years of historical data
+- Validates and stores data points
+- Handles BLS-specific data format (period codes like "M01")
+
+**Requirements:**
+- `BLS_API_KEY` environment variable
+
+**Frequency:** Daily
+
+---
+
+### pull-census-trade.ts
+Fetches trade statistics from U.S. Census Bureau.
+
+**Usage:**
+```bash
+npm run job:pull-census
+```
+
+**What it does:**
+- Fetches import/export trade data defined in `data/sources.json` for Census
+- Supports exports and imports by trade type
+- Handles HS codes and country filters
+- Parses Census API response formats
+
+**Requirements:**
+- Census Trade API access (may require registration)
+- Configure endpoints in `data/sources.json`
+
+**Frequency:** Daily
+
+**Note:** Census API endpoints may vary and require configuration. Some endpoints may need special access.
+
+---
+
 ### compute-metrics.ts
 Computes KPIs and metrics from time series data.
 

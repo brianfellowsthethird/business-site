@@ -11,7 +11,10 @@
     "init-db": "tsx scripts/init-db.ts",
     "seed-modules": "tsx scripts/seed-modules.ts",
     "job:pull-fred": "tsx scripts/jobs/pull-fred-prices.ts",
+    "job:pull-bls": "tsx scripts/jobs/pull-bls-ppi-ces.ts",
+    "job:pull-census": "tsx scripts/jobs/pull-census-trade.ts",
     "job:compute-metrics": "tsx scripts/jobs/compute-metrics.ts",
+    "job:all": "tsx scripts/jobs/run-all.ts",
     "test-data": "tsx scripts/test-data.ts"
   },
   "dependencies": {
