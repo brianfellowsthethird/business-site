@@ -1,0 +1,114 @@
+{
+  "fred": {
+    "name": "Federal Reserve Economic Data",
+    "baseUrl": "https://api.stlouisfed.org/fred",
+    "apiKey": "${FRED_API_KEY}",
+    "cadence": "daily",
+    "series": {
+      "PSOYBUSDM": {
+        "id": "PSOYBUSDM",
+        "name": "Soybean Price (USD per Metric Ton)",
+        "units": "USD/MT",
+        "frequency": "Monthly",
+        "module": "soybeans"
+      },
+      "INDPRO": {
+        "id": "INDPRO",
+        "name": "Industrial Production Index",
+        "units": "Index 2017=100",
+        "frequency": "Monthly",
+        "module": "steel-aluminum"
+      }
+    }
+  },
+  "census": {
+    "name": "U.S. Census Bureau Trade Data",
+    "baseUrl": "https://api.census.gov/data/timeseries/intltrade",
+    "cadence": "daily",
+    "series": {
+      "soybeans_china": {
+        "id": "soybeans_china",
+        "name": "Soybean Exports to China",
+        "hsCode": "1201",
+        "country": "CN",
+        "units": "USD millions",
+        "frequency": "Monthly",
+        "module": "soybeans"
+      },
+      "steel_imports": {
+        "id": "steel_imports",
+        "name": "Steel Imports",
+        "hsCode": "72",
+        "units": "USD millions",
+        "frequency": "Monthly",
+        "module": "steel-aluminum"
+      },
+      "aluminum_imports": {
+        "id": "aluminum_imports",
+        "name": "Aluminum Imports",
+        "hsCode": "76",
+        "units": "USD millions",
+        "frequency": "Monthly",
+        "module": "steel-aluminum"
+      }
+    }
+  },
+  "bls": {
+    "name": "Bureau of Labor Statistics",
+    "baseUrl": "https://api.bls.gov/publicAPI/v2",
+    "apiKey": "${BLS_API_KEY}",
+    "cadence": "daily",
+    "series": {
+      "PPI_steel": {
+        "id": "PCU331331",
+        "name": "Producer Price Index - Steel",
+        "units": "Index 1982=100",
+        "frequency": "Monthly",
+        "module": "steel-aluminum"
+      },
+      "PPI_aluminum": {
+        "id": "PCU33131",
+        "name": "Producer Price Index - Aluminum",
+        "units": "Index 1982=100",
+        "frequency": "Monthly",
+        "module": "steel-aluminum"
+      },
+      "CPI_furniture": {
+        "id": "CUSR0000SEHJ",
+        "name": "Consumer Price Index - Furniture",
+        "units": "Index 1982-84=100",
+        "frequency": "Monthly",
+        "module": "consumer-goods"
+      },
+      "CPI_appliances": {
+        "id": "CUSR0000SEHF",
+        "name": "Consumer Price Index - Appliances",
+        "units": "Index 1982-84=100",
+        "frequency": "Monthly",
+        "module": "consumer-goods"
+      }
+    }
+  },
+  "usda": {
+    "name": "USDA Foreign Agricultural Service",
+    "baseUrl": "https://apps.fas.usda.gov/OpenData/api",
+    "cadence": "weekly",
+    "series": {
+      "soy_exports": {
+        "id": "soy_exports",
+        "name": "Soybean Export Summary",
+        "commodity": "Soybeans",
+        "units": "Metric Tons",
+        "frequency": "Monthly",
+        "module": "soybeans"
+      }
+    }
+  },
+  "ustr": {
+    "name": "U.S. Trade Representative / Federal Register",
+    "baseUrl": "https://api.federalregister.gov/v1",
+    "cadence": "daily",
+    "searchTerms": ["Section 301", "tariff", "exclusion"],
+    "module": "policy-timeline"
+  }
+}
