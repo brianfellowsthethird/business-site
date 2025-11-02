@@ -9,7 +9,9 @@
     "lint": "next lint",
     "type-check": "tsc --noEmit",
     "init-db": "tsx scripts/init-db.ts",
-    "seed-modules": "tsx scripts/seed-modules.ts"
+    "seed-modules": "tsx scripts/seed-modules.ts",
+    "job:pull-fred": "tsx scripts/jobs/pull-fred-prices.ts",
+    "job:compute-metrics": "tsx scripts/jobs/compute-metrics.ts"
   },
   "dependencies": {
     "next": "^14.2.0",

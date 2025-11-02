@@ -15,7 +15,7 @@ This document tracks the implementation status of the Tariff Impact Site and out
 - [x] Base adapter interface
 - [x] FRED adapter implementation
 - [x] BLS adapter implementation
-- [x] Census adapter skeleton (needs API details)
+- [x] Census adapter implementation ?
 - [x] Database client with CRUD operations
 - [x] API routes (`/api/series`, `/api/modules`, `/api/policy`)
 
@@ -64,19 +64,19 @@ This document tracks the implementation status of the Tariff Impact Site and out
   - Status: Not started
 
 #### 1.2 Data Pipeline Jobs
-- [ ] **ETL Script Structure** - Create job framework
+- [x] **ETL Script Structure** - Create job framework
   - Script in `scripts/jobs/` directory
   - Error handling and logging
   - Idempotent operations
-  - Status: Not started
+  - Status: ? Complete
 
-- [ ] **Individual Job Scripts:**
-  - [ ] `pull_fred_prices.ts` - Daily FRED data fetch
+- [x] **Individual Job Scripts:**
+  - [x] `pull_fred_prices.ts` - Daily FRED data fetch ?
   - [ ] `pull_bls_ppi_ces.ts` - Daily BLS indices
   - [ ] `pull_census_trade.ts` - Daily trade statistics
   - [ ] `pull_usda_fas.ts` - Weekly agricultural data
   - [ ] `pull_policy_events.ts` - Daily policy monitoring
-  - [ ] `compute_metrics.ts` - Nightly KPI calculations (deltas, YoY, baselines)
+  - [x] `compute_metrics.ts` - Nightly KPI calculations (deltas, YoY, baselines) ?
 
 - [ ] **Cron/Scheduling Setup**
   - Local development: manual runs or node-cron
@@ -84,8 +84,8 @@ This document tracks the implementation status of the Tariff Impact Site and out
   - Status: Not started
 
 #### 1.3 Data Validation & Quality
-- [ ] Data validation with Zod schemas
-- [ ] Handle missing data gracefully
+- [x] Data validation with Zod schemas ?
+- [x] Handle missing data gracefully (in adapters) ?
 - [ ] Data revision tracking
 - [ ] Backfill scripts for historical data
 
@@ -188,14 +188,14 @@ This document tracks the implementation status of the Tariff Impact Site and out
 
 ## ?? Progress Summary
 
-**Overall Completion: ~60%**
+**Overall Completion: ~75%**
 
 - Infrastructure: ? 100%
 - Components: ? 90%
-- Data Adapters: ?? 50% (FRED/BLS done, Census/USDA/USTR pending)
-- Data Pipeline: ?? 20% (structure ready, jobs not implemented)
+- Data Adapters: ?? 67% (FRED/BLS/Census done, USDA/USTR pending)
+- Data Pipeline: ?? 60% (framework + 2 jobs done, 4 more jobs pending)
 - Content/Modules: ?? 30% (templates done, real data pending)
-- Documentation: ? 80%
+- Documentation: ? 85%
 
 **Next Milestone:** Working data pipeline pulling real data for at least one module (Soybeans).
 

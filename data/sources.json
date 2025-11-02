@@ -31,6 +31,9 @@
         "name": "Soybean Exports to China",
         "hsCode": "1201",
         "country": "CN",
+        "tradeType": "exports",
+        "commodityLevel": "HS6",
+        "startDate": "2018-01",
         "units": "USD millions",
         "frequency": "Monthly",
         "module": "soybeans"
